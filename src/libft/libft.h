@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:13:44 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/26 15:42:35 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/01 18:57:10 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,18 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* Additional functions */
+
 int		ft_flname_extens_cmp(char *name, char *end);
 int		ft_table_linecount(char **table);
 void	ft_free_table(char	**table);
 int		ft_strlen_int(const char *s);
-
+void	*ft_free(void *data);
+int		ft_memcpm_reverse(char *s1, char *s2);
+int		ft_if_empty_line(char *line);
+char	**ft_split_charset(char *str, char *set);
+void	*ft_clear_split(char **split);
+void	*ft_free_split(char **split);
+int		ft_strcmp(char *s1, char *s2);
 #endif

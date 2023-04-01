@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:30:36 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/03/28 21:42:57 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/01 17:16:59 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,11 @@
 # define INVALID_SET 	"Invalid setting's line"
 # define INVALID_MAP 	"Invalid map"
 # define MALLOC 		"Malloc failed"
+
+/******************************************************************************/
+/*								FUNCTIONS LIST								  */
+/******************************************************************************/
+
+int	error_msg(char *msg);
 
 #endif

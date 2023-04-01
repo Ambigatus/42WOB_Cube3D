@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/03/28 22:25:29 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/01 19:02:33 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ enum e_color
 
 enum e_texture
 {
-	NORD,
-	SOUTH,
-	WEST,
-	EAST
+	NO,
+	SO,
+	WE,
+	EA
 };
 
 /******************************************************************************/
@@ -172,7 +172,10 @@ typedef struct s_system
 }	t_system;
 
 /******************************************************************************/
-/*							   LIST OF FUNCTIONS							  */
+/*							   LIST OF FUNCTIONS, PARSER					  */
 /******************************************************************************/
+
+void	initialization(t_system *system);
+int		cmp_setup(t_system *system, char *line, char *type, int val);
 
 #endif
