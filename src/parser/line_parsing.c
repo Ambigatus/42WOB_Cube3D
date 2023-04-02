@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:46:16 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/01 19:03:21 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 18:23:37 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,3 @@ int	cmp_setup(t_system *system, char *line, char *type, int val)
 	ft_free_split(split);
 	return (1);
 }
-
-//here need make map checking

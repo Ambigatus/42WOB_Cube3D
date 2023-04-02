@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:13:44 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/01 18:57:10 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 20:07:31 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+# define BUFFER_SIZE	42
 
 typedef struct s_list
 {
@@ -67,6 +69,16 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+/* GNL functions */
+
+size_t	gnl_strlen(char *str);
+char	*gnl_strchr(char *str, int c);
+char	*gnl_strjoin(char *s1, char *s2);
+char	*ft_take_line(char *temp);
+char	*ft_hold_line(char *temp);
+char	*ft_read_line_and_save(int fd, char *temp);
+char	*get_next_line(int fd);
+
 /* Additional functions */
 
 int		ft_flname_extens_cmp(char *name, char *end);
@@ -80,4 +92,5 @@ char	**ft_split_charset(char *str, char *set);
 void	*ft_clear_split(char **split);
 void	*ft_free_split(char **split);
 int		ft_strcmp(char *s1, char *s2);
+
 #endif
