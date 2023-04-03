@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:50:35 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/02 20:33:40 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/03 17:24:47 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,36 @@ int	valid_char(char c)
 		&& c != 'W')
 		return (0);
 	return (1);
+}
+
+/* This function only_valid_char iterates through the map and checks if each
+** character in the map is valid. It also calls the player_check function to
+** check for the player character and save its position. It sets the width of
+** the map based on the longest line, and throws an error if any invalid
+** characters are found or if the player character is missing. */
+void	only_valid_char(t_system *system)
+{
+	size_t	i;
+	size_t	y;
+	size_t	len;
+
+	i = 0;
+	system->width = 0;
+	while (i < system->height - 1)
+	{
+		len = ft_strlen(system->map[i]);
+		if (len > system->width)
+			system->width = len;
+		y = 0;
+		while (system->map[i][y])
+		{
+			if (!valid_char(system->map[i][y]))
+				end_map_parsing(system, INVALID_MAP, NULL);
+			player_check(system, system->map[i][y], i, y);
+			y++;
+		}
+		i++;
+	}
+	if (system->player[0] == -1)
+		end_map_parsing(system, INVALID_MAP, NULL);
 }

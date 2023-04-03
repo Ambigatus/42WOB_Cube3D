@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:07 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/02 20:36:29 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/03 18:36:58 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_key
 
 void	free_initialization(t_system *system, char *line);
 int		valid_char(char c);
+void	only_valid_char(t_system *system);
 
 /******************************************************************************/
 /*							FUNCTIONS LIST, MAP					 			  */
@@ -96,5 +97,7 @@ void	get_fd(t_system *system, char *file);
 int		check_info(int *info);
 int		check_lines(char *line, int type);
 void	find_the_height(t_system *system);
+void	space_validation(t_system *system);
+void	walls_validation(t_system *system);
 
 #endif

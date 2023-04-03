@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:29:17 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/02 20:24:46 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/03 17:59:08 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,26 @@ void	find_the_height(t_system *system)
 	system->fd = 0;
 	if (system->height < 3)
 		exit (error_msg(INVALID_MAP));
+}
+
+/* The space_validation function checks the map stored in the system structure
+** and adds spaces to each line to make them the same length as the longest
+** line in the map. It does this by calling the realloc_set function which
+** allocates a new string with a specified length, fills it with a given
+** character, copies the contents of the original string into it, and frees
+** the old string. If memory allocation fails, the function calls
+** end_map_parsing with an appropriate error code. */
+void	space_validation(t_system *system)
+{
+	int	i;
+
+	i = 0;
+	while (system->map[i])
+	{
+		if (ft_strlen(system->map[i]) < system->width)
+			system->map[i] = realloc_set(system->map[i], system->width, ' ');
+		if (!system->map[i])
+			end_map_parsing(system, MALLOC, NULL);
+		i++;
+	}
 }

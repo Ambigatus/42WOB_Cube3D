@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/02 20:34:59 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/03 19:17:31 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ enum e_type
 enum e_color
 {
 	FLOOR,
-	CELLING
+	CEILING
 };
 
 enum e_texture
@@ -177,6 +177,8 @@ typedef struct s_system
 
 void	initialization(t_system *system);
 int		cmp_setup(t_system *system, char *line, char *type, int val);
+char	**split_and_validate_line(t_system *system, char *line);
+void	color_parsing(t_system *system, char *line, int type);
 
 /******************************************************************************/
 /*							   LIST OF FUNCTIONS, MAP						  */
@@ -184,5 +186,7 @@ int		cmp_setup(t_system *system, char *line, char *type, int val);
 
 char	*open_map(t_system *system, char *line);
 void	player_check(t_system *system, char elmt, int y, int x);
+void	validate_space_around(t_system *system);
+char	*map_validation(t_system *system, char *line);
 
 #endif

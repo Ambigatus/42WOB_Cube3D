@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:46:16 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/02 18:23:37 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/03 18:55:20 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,33 @@ int	cmp_setup(t_system *system, char *line, char *type, int val)
 	}
 	ft_free_split(split);
 	return (1);
+}
+
+/* This function takes a system structure and a line of text as input. It splits
+** the line into substrings using whitespace as a delimiter and stores the
+** substrings in an array. It then checks the number of substrings in the array
+** and exits with an error message if there are more than two. If there are no
+** errors, it returns the array of substrings. If there is an error, it frees
+** the allocated memory and exits the program. */
+char	**split_and_validate_line(t_system *system, char *line)
+{
+	char	**splitted;
+	int		i;
+
+	splitted = ft_split_charset(line, WHITE);
+	if (!splitted)
+	{
+		free_initialization(system, line);
+		exit (error_msg(MALLOC));
+	}
+	i = 0;
+	while (splitted[i])
+		i++;
+	if (i > 2)
+	{
+		free_initialization(system, line);
+		ft_free(splitted);
+		exit (error_msg(INVALID_SET));
+	}
+	return (splitted);
 }

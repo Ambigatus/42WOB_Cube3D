@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:13:44 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/02 20:07:31 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/03 17:54:56 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,9 @@ char	**ft_split_charset(char *str, char *set);
 void	*ft_clear_split(char **split);
 void	*ft_free_split(char **split);
 int		ft_strcmp(char *s1, char *s2);
+char	*ft_strcpy_complete(char *dest, char *src, char charset, int len);
+int		*ft_realloc_int(int *tab, int len_tab, int add_len);
+char	**ft_realloc_one(char **old, int len, char *new_line);
+char	*realloc_set(char *line, int new_len, char charset);
 
 #endif
