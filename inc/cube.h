@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/03 19:17:31 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/06 20:36:10 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,7 @@ void	initialization(t_system *system);
 int		cmp_setup(t_system *system, char *line, char *type, int val);
 char	**split_and_validate_line(t_system *system, char *line);
 void	color_parsing(t_system *system, char *line, int type);
+void	texture_parsing(t_system *system, char *line, int type);
 
 /******************************************************************************/
 /*							   LIST OF FUNCTIONS, MAP						  */

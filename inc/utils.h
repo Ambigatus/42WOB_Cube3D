@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:07 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/03 18:36:58 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/06 20:47:41 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	only_valid_char(t_system *system);
 /*							FUNCTIONS LIST, MAP					 			  */
 /******************************************************************************/
 
-void	end_map_parsing(t_system *system, char *msg, char *line)
+void	end_map_parsing(t_system *system, char *msg, char *line);
 void	get_fd(t_system *system, char *file);
 int		check_info(int *info);
 int		check_lines(char *line, int type);
