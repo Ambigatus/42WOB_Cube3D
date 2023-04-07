@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/06 20:36:10 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 18:20:42 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,7 @@ int		cmp_setup(t_system *system, char *line, char *type, int val);
 char	**split_and_validate_line(t_system *system, char *line);
 void	color_parsing(t_system *system, char *line, int type);
 void	texture_parsing(t_system *system, char *line, int type);
+void	parsing(int argc, char **argv, t_system *system);
 
 /******************************************************************************/
 /*							   LIST OF FUNCTIONS, MAP						  */
@@ -189,5 +190,11 @@ char	*open_map(t_system *system, char *line);
 void	player_check(t_system *system, char elmt, int y, int x);
 void	validate_space_around(t_system *system);
 char	*map_validation(t_system *system, char *line);
+
+/******************************************************************************/
+/*						 LIST OF FUNCTIONS, GRAPHIC ENGINE					  */
+/******************************************************************************/
+
+void	ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
 
 #endif
