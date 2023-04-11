@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/07 18:20:42 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/11 18:42:44 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include <sys/stat.h>
 # include <limits.h>
 # include <math.h>
-# include "../src/libft/libft.h"
-# include "../src/mlx/mlx.h"
+# include "../libft/libft.h"
+# include "../mlx/mlx.h"
 # include "utils.h"
 # include "errors.h"
 
