@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/11 18:42:44 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/11 19:46:55 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,5 +196,10 @@ char	*map_validation(t_system *system, char *line);
 /******************************************************************************/
 
 void	ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
+
+/******************************************************************************/
+/*						 LIST OF FUNCTIONS, KEYS							  */
+/******************************************************************************/
+int		move_player(int keycode, t_struct *data);
 
 #endif
