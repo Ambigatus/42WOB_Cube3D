@@ -6,18 +6,18 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 19:39:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/11 19:44:19 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:43:54 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../../inc/cube.h"
 
 
 // This function updates the player's position and 
 // redraws the display in a first-person shooter game using 
 // the mlx graphics library. It takes an input "keycode" to move the player and exits 
 // the game when the "ESC" key is pressed.
-int	move_player(int keycode, t_struct *data)
+int	move_player(int keycode, t_system *data)
 {
 	mlx_clear_window(data->cube->mlx, data->cube->window);
 	key_move_cam(data);
