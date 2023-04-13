@@ -6,12 +6,37 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 19:39:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/13 16:43:54 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:23:27 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cube.h"
 
+
+// This function updates the camera's position and orientation in 
+// a first-person shooter game. If the left key is pressed, it rotates 
+// the camera to the left. If the right key is pressed, it rotates the 
+// camera to the right. It also updates the camera's position based on 
+// its new orientation.
+static void	move_camera(t_system *data)
+{
+	if (data->key.left == 1)
+	{
+		data->cube->player.pa -= ROT_SPEED;
+		if (data->cube->player.pa < 0)
+			data->cube->player.pa += 2 * M_PI;
+		data->cube->player.pdx = cos(data->cube->player.pa) * 5;
+		data->cube->player.pdy = sin(data->cube->player.pa) * 5;
+	}
+	else if (data->key.right == 1)
+	{
+		data->cube->player.pa += ROT_SPEED;
+		if (data->cube->player.pa > 2 * M_PI)
+			data->cube->player.pa -= 2 * M_PI;
+		data->cube->player.pdx = cos(data->cube->player.pa) * 5;
+		data->cube->player.pdy = sin(data->cube->player.pa) * 5;
+	}
+}
 
 // This function updates the player's position and 
 // redraws the display in a first-person shooter game using 
