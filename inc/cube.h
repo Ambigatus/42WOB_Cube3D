@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/15 20:46:21 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 20:53:14 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,8 +204,9 @@ void	ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
 float	*init_ray_data(t_system	*data, float *elem);
 float	*get_data_ray(t_system *data, t_ray *ray, int type);
 float	check_distance(t_ray *ray);
+static void	draw_ray(float small, t_system *data, int i);
+void	draw_seeing_rays(t_system *data);
 //ray utils
-
 int		check_wall(t_system *data, float x, float y);
 void	draw_column(t_system *data, int i, t_ray *ray);
 void	update_y_color(float *draw, t_system *data, float end, t_ray *ray);
