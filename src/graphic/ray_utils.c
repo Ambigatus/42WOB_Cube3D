@@ -6,11 +6,67 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 16:16:29 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 16:33:34 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 20:44:14 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cube.h"
+
+// This function updates the value of end, which represents the endpoint of the wall 
+// slice being drawn. It takes two arguments: the current value of end and a pointer 
+// to a t_ray struct called ray.
+float	update_wall_end(float end, t_ray *ray)
+{
+	if (end == 0)
+		end = ray->line_o + ray->line_h;
+	else if (end == ray->line_o + ray->line_h)
+		end = WIN_H;
+	else
+		end = INT_MAX;
+	return (end);
+}
+
+// This function is responsible for updating the color of the current vertical strip
+//  being drawn on the screen based on its position on the screen.
+void	update_y_color(float *draw, t_system *data, float end, t_ray *ray)
+{
+	draw[Y + 2] = end;
+
+	if (end == 0)
+	{
+		draw[Y] = ray->line_o;
+		draw[4] = data->color[CEILING];
+	}
+	else if (end == WIN_H)
+	{
+		draw[Y] = ray->line_o + ray->line_h;
+		draw[4] = data->color[FLOOR];
+	}
+	else
+		draw[Y] = ray->line_o;
+}
+
+// This function is responsible for drawing a single column of the 3D scene on 
+// the screen,based on the information contained in a single ray.
+void	draw_column(t_system *data, int i, t_ray *ray)
+{
+	float	*draw;
+	float	end;
+
+	draw = malloc(sizeof(float) * 5);
+	if (!draw)
+		return ;
+	draw[X] = i + 0;
+	draw[X + 2] = i + 0;
+	end = 0;
+	while (end < INT_MAX)
+	{
+		update_y_color(draw, data, end, ray);
+		ft_3d_engine(data, draw, end, ray);
+		end = update_wall_end(end, ray);
+	}
+	ft_free(draw);
+}
 
 // It returns 1 if the given position (x,y) is a wall in the game map, 
 // otherwise it returns 0.

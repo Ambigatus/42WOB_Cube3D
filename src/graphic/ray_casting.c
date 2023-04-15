@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:24:37 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 17:02:07 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 20:45:53 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,35 @@ float	check_distance(t_ray *ray)
 		ray->texture[RENDER_TEXT] = ray->texture[HORIZONTAL];
 	}
 	return (ray->dist);
+}
+
+// It calculates the distance between the player and the wall that is hit 
+// by the ray, and then uses that distance to determine the height of the wall
+//  on the screen. It then calls the draw_cwf function to draw the wall on the 
+//  screen. However, it doesn't draw anything else like the player or other 
+//  objects in the game.
+static void	draw_ray(float small, t_system *data, int i)
+{
+	static t_ray	ray;
+
+	ray.r = malloc(sizeof(float) * 3);
+	if (!ray.r)
+		exit(1);
+	while (i < WIN_W)
+	{
+		ray.ra = data->cube->player.pa + atan(small);
+		ray.ra = update_angle(ray.ra);
+		ray.hor = get_data_ray(data, &ray, HORIZONTAL);
+		ray.ver = get_data_ray(data, &ray, VERTICAL);
+		ray.dist = check_distance(&ray);
+		ray.ca = data->cube->player.pa - ray.ra;
+		ray.ca = update_angle(ray.ca);
+		ray.line_h = data->map_s * 320 / (ray.dist * cos(ray.ca));
+		ray.line_o = 160 - ray.line_h / 2;
+		data->cube->ray = &ray;
+		draw_column(data, i, &ray);
+		small += FOV / WIN_W;
+		i++;
+	}
+	ft_free(ray.r);	
 }
