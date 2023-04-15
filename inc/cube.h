@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/15 20:53:14 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:38:14 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,49 +175,55 @@ typedef struct s_system
 /*							   LIST OF FUNCTIONS, PARSER					  */
 /******************************************************************************/
 
-void	initialization(t_system *system);
-int		cmp_setup(t_system *system, char *line, char *type, int val);
-char	**split_and_validate_line(t_system *system, char *line);
-void	color_parsing(t_system *system, char *line, int type);
-void	texture_parsing(t_system *system, char *line, int type);
-void	parsing(int argc, char **argv, t_system *system);
+void		initialization(t_system *system);
+int			cmp_setup(t_system *system, char *line, char *type, int val);
+char		**split_and_validate_line(t_system *system, char *line);
+void		color_parsing(t_system *system, char *line, int type);
+void		texture_parsing(t_system *system, char *line, int type);
+void		parsing(int argc, char **argv, t_system *system);
 
 /******************************************************************************/
 /*							   LIST OF FUNCTIONS, MAP						  */
 /******************************************************************************/
 
-char	*open_map(t_system *system, char *line);
-void	player_check(t_system *system, char elmt, int y, int x);
-void	validate_space_around(t_system *system);
-char	*map_validation(t_system *system, char *line);
+char		*open_map(t_system *system, char *line);
+void		player_check(t_system *system, char elmt, int y, int x);
+void		validate_space_around(t_system *system);
+char		*map_validation(t_system *system, char *line);
 
 /******************************************************************************/
 /*						 LIST OF FUNCTIONS, GRAPHIC ENGINE					  */
 /******************************************************************************/
 
-void	ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
+void		ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
 
 /******************************************************************************/
 /*						 LIST OF FUNCTIONS, RAY CASTING						  */
 /******************************************************************************/
 
-float	*init_ray_data(t_system	*data, float *elem);
-float	*get_data_ray(t_system *data, t_ray *ray, int type);
-float	check_distance(t_ray *ray);
+float		*init_ray_data(t_system	*data, float *elem);
+float		*get_data_ray(t_system *data, t_ray *ray, int type);
+float		check_distance(t_ray *ray);
 static void	draw_ray(float small, t_system *data, int i);
-void	draw_seeing_rays(t_system *data);
+void		draw_seeing_rays(t_system *data);
 //ray utils
-int		check_wall(t_system *data, float x, float y);
-void	draw_column(t_system *data, int i, t_ray *ray);
-void	update_y_color(float *draw, t_system *data, float end, t_ray *ray);
-float	update_wall_end(float end, t_ray *ray);
+int			check_wall(t_system *data, float x, float y);
+void		draw_column(t_system *data, int i, t_ray *ray);
+void		update_y_color(float *draw, t_system *data, float end, t_ray *ray);
+float		update_wall_end(float end, t_ray *ray);
+static int	update_data(t_system *data, float *ray);
+static int	check_ra_hor(t_system *data, float *ray, float *ray_orig, \
+							float ra);
+static int	check_ra_ver(t_system *data, float *ray, float *ray_orig, \
+							float ra);
+
 
 /******************************************************************************/
 /*						 LIST OF FUNCTIONS, KEYS							  */
 /******************************************************************************/
-int		move_player(int keycode, t_system *data);
-int		ft_exit(int keycode);
-int		keyrelease(int keycode, t_system *data);
-int		keypress(int keycode, t_system *data);
+int			move_player(int keycode, t_system *data);
+int			ft_exit(int keycode);
+int			keyrelease(int keycode, t_system *data);
+int			keypress(int keycode, t_system *data);
 
 #endif
