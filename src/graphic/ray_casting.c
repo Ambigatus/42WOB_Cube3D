@@ -6,12 +6,11 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:24:37 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 16:48:16 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:02:07 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cube.h"
-
 
 // elem[X] = data->cube->player.px; -  init the X-coordinate of the ray 
 // to the X-coordinate of the player's position in the game.
@@ -58,8 +57,7 @@ float	*get_data_ray(t_system *data, t_ray *ray, int type)
 	else
 	{
 		ray->hor = init_ray_data(data, ray->ver);
-		depth_of_field = field_depth_hor(data, ray->r, ray_origin, \
-											ray->ra);
+		depth_of_field = field_depth_hor(data, ray->r, ray_origin, ray->ra);
 	}
 	while (depth_of_field[0] < depth_of_field[1])
 	{
@@ -73,4 +71,26 @@ float	*get_data_ray(t_system *data, t_ray *ray, int type)
 		return (ray->hor);
 	else
 		return (ray->ver);
+}
+
+// This function compares the distance of a vertical and a horizontal wall
+//  that a ray hits, and returns the shorter distance. It also updates 
+// the texture to be rendered based on the shorter distance.
+float	check_distance(t_ray *ray)
+{
+	if (ray->ver[DIST] < ray->hor[DIST])
+	{
+		ray->r[X] = ray->ver[X];
+		ray->r[Y] = ray->ver[Y];
+		ray->dist = ray->ver[DIST];
+		ray->texture[RENDER_TEXT] = ray->texture[VERTICAL];
+	}
+	else
+	{
+		ray->r[X] = ray->hor[X];
+		ray->r[Y] = ray->hor[Y];
+		ray->dist = ray->hor[DIST];
+		ray->texture[RENDER_TEXT] = ray->texture[HORIZONTAL];
+	}
+	return (ray->dist);
 }
