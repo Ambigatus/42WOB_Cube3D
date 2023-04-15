@@ -35,6 +35,8 @@ SRCS		=	main.c\
 				parser/texture_parsing.c\
 				parser/utils.c\
 				utils/utils.c\
+				keys/keys.c\
+				keys/exit.c\
 
 OBJS =	$(SRCS:%.c=$(BUILD_DIR)/%.o)
 
