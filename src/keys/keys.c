@@ -6,11 +6,22 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 19:39:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 13:48:09 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:25:23 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cube.h"
+
+
+// This function takes a number n as input, and returns -1 if n is negative,
+//  1 if n is positive or 0 if n is zero. It's basically a way to convert a number
+//   to its corresponding sign (-1 for negative, 0 for zero, 1 for positive). It's
+//    used in the key_move_player_y function in the cub3D game to determine the direction 
+//    of movement (up or down) based on the sign of the player's velocity.
+static int	if_sign(double n)
+{
+	return ((n < 0) * -1 + (n >= 0));
+}
 
 // This function handles the player's movement in the x-axis in 
 // a first-person shooter game. If the 'a' key is pressed, it moves 
