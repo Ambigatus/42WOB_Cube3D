@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:28:29 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/07 18:19:04 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/15 22:16:37 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,14 @@ int	check_walls(t_system *system, float x, float y)
 ** represented by a single character in the map string. The x and y values are
 ** the coordinates of the player's position, which are converted into the
 ** coordinates of the corresponding square in the map using this operation. */
+
+//initialization of images
+void	init_image(t_system *system)
+{
+	system->cube->image.img = mlx_new_image(system->cube->mlx, \
+											WIN_W, WIN_H);
+	system->cube->image.address = mlx_get_data_addr(system->cube->image.img, \
+									&system->cube->image.bits_per_pixel, \
+									&system->cube->image.line_length, \
+									&system->cube->image.endian);
+}

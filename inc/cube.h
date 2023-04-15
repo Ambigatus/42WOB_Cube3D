@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/15 21:49:21 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 22:17:03 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,7 @@ char		**split_and_validate_line(t_system *system, char *line);
 void		color_parsing(t_system *system, char *line, int type);
 void		texture_parsing(t_system *system, char *line, int type);
 void		parsing(int argc, char **argv, t_system *system);
+void		init_image(t_system *system);
 
 /******************************************************************************/
 /*							   LIST OF FUNCTIONS, MAP						  */
