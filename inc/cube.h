@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/15 21:44:04 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:49:21 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,8 @@ static int	check_ra_hor(t_system *data, float *ray, float *ray_orig, \
 							float ra);
 static int	check_ra_ver(t_system *data, float *ray, float *ray_orig, \
 							float ra);
-int	*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra);
+int			*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra);
+int			*depth_of_field_hor(t_system *data, float *ray, float *ray_orig, float ra);
 
 
 /******************************************************************************/
