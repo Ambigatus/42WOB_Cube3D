@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:59:07 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 21:37:42 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:45:48 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,18 @@ static int	check_ra_ver(t_system *data, float *ray, float *ray_orig, \
 	}
 	if (ra == 0 || ra == M_PI)
 		depth_of_field = update_data(data, ray);
+	return (depth_of_field);
+}
+
+// This function is used to calculate the depth of field for a vertical ray. 
+// It takes in the game data, the starting point of the ray, the direction 
+// of the ray, and the angle of the ray. 
+int	*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra)
+{
+	int	*depth_of_field;
+	
+	depth_of_field = malloc(sizeof(int) * 2);
+	depth_of_field[0] = check_ra_ver(data, ray, ray_orig, ra);
+	depth_of_field[1] = data->width;
 	return (depth_of_field);
 }
