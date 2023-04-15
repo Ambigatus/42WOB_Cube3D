@@ -39,6 +39,7 @@ SRCS		=	main.c\
 				keys/exit.c\
 				keys/keys_utils.c\
 				graphic/ray_casting.c\
+				graphic/ray_utils.c\
 
 OBJS =	$(SRCS:%.c=$(BUILD_DIR)/%.o)
 
