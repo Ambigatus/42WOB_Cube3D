@@ -37,6 +37,7 @@ SRCS		=	main.c\
 				utils/utils.c\
 				keys/keys.c\
 				keys/exit.c\
+				keys/keys_utils.c\
 
 OBJS =	$(SRCS:%.c=$(BUILD_DIR)/%.o)
 
