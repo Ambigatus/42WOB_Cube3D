@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:59:07 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 21:49:01 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:11:08 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int	check_ra_ver(t_system *data, float *ray, float *ray_orig, \
 int	*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra)
 {
 	int	*depth_of_field;
-	
+
 	depth_of_field = malloc(sizeof(int) * 2);
 	depth_of_field[0] = check_ra_ver(data, ray, ray_orig, ra);
 	depth_of_field[1] = data->width;
@@ -104,7 +104,7 @@ int	*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra)
 int	*depth_of_field_hor(t_system *data, float *ray, float *ray_orig, float ra)
 {
 	int	*depth_of_field;
-	
+
 	depth_of_field = malloc(sizeof(int) * 2);
 	depth_of_field[0] = check_ra_hor(data, ray, ray_orig, ra);
 	depth_of_field[1] = data->height;

@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:08:31 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/15 22:09:38 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:06:49 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	mlx_hook(system->cube->window, 3, 3, keyrelease, system);
 	mlx_hook(system->cube->window, 2, 2, keypress, system);
 	mlx_hook(system->cube->window, 17, 0L, ft_exit, system->cube);
-	mlx_loop_hook(system->cube->mlx, moving,system);
+	mlx_loop_hook(system->cube->mlx, moving, system);
 	mlx_loop(system->cube->mlx);
 	exit(0);
 }

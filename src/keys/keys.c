@@ -6,18 +6,18 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 19:39:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/19 16:45:40 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:26:45 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cube.h"
 
-
 // This function takes a number n as input, and returns -1 if n is negative,
-//  1 if n is positive or 0 if n is zero. It's basically a way to convert a number
-//   to its corresponding sign (-1 for negative, 0 for zero, 1 for positive). It's
-//    used in the key_move_player_y function in the cub3D game to determine the direction 
-//    of movement (up or down) based on the sign of the player's velocity.
+//  1 if n is positive or 0 if n is zero. It's basically a way to convert a 
+// number to its corresponding sign (-1 for negative, 0 for zero, 1 for 
+// positive). It's used in the key_move_player_y function in the cub3D game to 
+// determine the direction of movement (up or down) based on the sign of the 
+// player's velocity.
 static int	if_sign(double n)
 {
 	return ((n < 0) * -1 + (n >= 0));
@@ -26,10 +26,11 @@ static int	if_sign(double n)
 // This function handles the player's movement in the x-axis in 
 // a first-person shooter game. If the 'a' key is pressed, it moves 
 // the player left. If the 'd' key is pressed, it moves the player right. 
-// It checks if the new position of the player would result in a collision with a wall, 
-// and if not, it updates the player's position accordingly. The function also takes into 
-// account the player's current orientation (stored in data->cube->player.pdx and 
-// data->cube->player.pdy) when calculating the new position.
+// It checks if the new position of the player would result in a collision with
+//  a wall,and if not, it updates the player's position accordingly. The 
+// function also takes into account the player's current orientation (stored in 
+// data->cube->player.pdx and data->cube->player.pdy) when calculating the new 
+// position.
 static void	key_move_player_x(t_system	*data)
 {
 	float	px;
@@ -47,7 +48,6 @@ static void	key_move_player_x(t_system	*data)
 			data->cube->player.px = npx;
 		if (!check_wall(data, px, npy + 10 * if_sign(data->cube->player.pdx)))
 			data->cube->player.px = npx;
-			
 	}
 	else if (data->key.a == 1)
 	{
@@ -62,11 +62,12 @@ static void	key_move_player_x(t_system	*data)
 
 // This function handles the player's movement in the y-axis in 
 // a first-person shooter game. If the 's' key is pressed, it moves 
-// the player backwards. If the 'w' key is pressed, it moves the player forwards. 
-// It checks if the new position of the player would result in a collision with a wall, 
-// and if not, it updates the player's position accordingly. The function also takes into 
-// account the player's current orientation (stored in data->cube->player.pdx and 
-// data->cube->player.pdy) when calculating the new position.
+// the player backwards. If the 'w' key is pressed, it moves the player 
+// forwards. It checks if the new position of the player would result in a 
+// collision with a wall, and if not, it updates the player's position 
+// accordingly.The function also takes into account the player's current 
+// orientation (stored in data->cube->player.pdx and data->cube->player.pdy) 
+// when calculating the new position.
 static void	key_move_player_y(t_system	*data)
 {
 	float	px;
@@ -84,7 +85,6 @@ static void	key_move_player_y(t_system	*data)
 			data->cube->player.px = npx;
 		if (!check_wall(data, px, npy - 10 * if_sign(data->cube->player.pdy)))
 			data->cube->player.px = npx;
-			
 	}
 	else if (data->key.w == 1)
 	{
@@ -124,8 +124,8 @@ static void	move_camera_keys(t_system *data)
 
 // This function updates the player's position and 
 // redraws the display in a first-person shooter game using 
-// the mlx graphics library. It takes an input "keycode" to move the player and exits 
-// the game when the "ESC" key is pressed.
+// the mlx graphics library. It takes an input "keycode" to move the 
+// player and exits the game when the "ESC" key is pressed.
 int	move_player(int keycode, t_system *data)
 {
 	mlx_clear_window(data->cube->mlx, data->cube->window);

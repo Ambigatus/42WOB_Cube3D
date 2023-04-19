@@ -6,15 +6,15 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 16:16:29 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 20:44:14 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:18:04 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cube.h"
 
-// This function updates the value of end, which represents the endpoint of the wall 
-// slice being drawn. It takes two arguments: the current value of end and a pointer 
-// to a t_ray struct called ray.
+// This function updates the value of end, which represents the endpoint of 
+// the wall slice being drawn. It takes two arguments: the current value of end 
+// and a pointer to a t_ray struct called ray.
 float	update_wall_end(float end, t_ray *ray)
 {
 	if (end == 0)
@@ -26,12 +26,11 @@ float	update_wall_end(float end, t_ray *ray)
 	return (end);
 }
 
-// This function is responsible for updating the color of the current vertical strip
-//  being drawn on the screen based on its position on the screen.
+// This function is responsible for updating the color of the current vertical
+//  strip being drawn on the screen based on its position on the screen.
 void	update_y_color(float *draw, t_system *data, float end, t_ray *ray)
 {
 	draw[Y + 2] = end;
-
 	if (end == 0)
 	{
 		draw[Y] = ray->line_o;
@@ -89,4 +88,14 @@ int	check_wall(t_system *data, float x, float y)
 		data->map[map_coord[Y]][map_coord[X]] == '1')
 		return (1);
 	return (0);
+}
+
+//This function calculates the Euclidean distance between two points in
+//  a 2D space, given their coordinates.
+float	calc_dist(float ax, float ay, float bx, float by)
+{
+	float	dist;
+
+	dist = sqrtf((bx - ax) * (bx - ax) + (by - ay) * (by - ay));
+	return (dist);
 }

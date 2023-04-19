@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/19 16:54:47 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:06:15 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -283,7 +283,8 @@ void			walls_validation(t_system *system);
 /*						 LIST OF FUNCTIONS, GRAPHIC ENGINE					  */
 /******************************************************************************/
 
-void			ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
+void			ft_3d_engine(t_system *system, float *draw, float end, \
+							t_ray *ray);
 void			ft_mlx_put_pixel(t_cube *cube, int x, int y, int color);
 unsigned int	ft_mlx_get_pixel(t_image *img, int x, int y);
 float			update_angle(float angle);
@@ -301,10 +302,13 @@ void			draw_seeing_rays(t_system *data);
 //ray utils
 int				check_wall(t_system *data, float x, float y);
 void			draw_column(t_system *data, int i, t_ray *ray);
-void			update_y_color(float *draw, t_system *data, float end, t_ray *ray);
+void			update_y_color(float *draw, t_system *data, float end, \
+								t_ray *ray);
 float			update_wall_end(float end, t_ray *ray);
-int				*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra);
-int				*depth_of_field_hor(t_system *data, float *ray, float *ray_orig, float ra);
+int				*depth_of_field_ver(t_system *data, float *ray, \
+									float *ray_orig, float ra);
+int				*depth_of_field_hor(t_system *data, float *ray, \
+									float *ray_orig, float ra);
 void			get_ray_val(t_system *system, t_ray *ray, int *dof, int type);
 
 /******************************************************************************/

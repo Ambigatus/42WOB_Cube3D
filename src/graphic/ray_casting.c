@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:24:37 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/19 16:56:23 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:10:35 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ float	*get_data_ray(t_system *data, t_ray *ray, int type)
 		if (check_wall(data, ray->r[X], ray->r[Y]))
 			get_ray_val(data, ray, depth_of_field, type);
 		else
-			update_data_ray(ray->r, ray_origin, depth_of_field);	
+			update_data_ray(ray->r, ray_origin, depth_of_field);
 	}
 	ft_free(depth_of_field);
 	if (type == HORIZONTAL)
@@ -123,16 +123,18 @@ static void	draw_ray(float small, t_system *data, int i)
 		small += FOV / WIN_W;
 		i++;
 	}
-	ft_free(ray.r);	
+	ft_free(ray.r);
 }
 
-// This function is responsible for drawing the rays cast by the player's field of view. 
-// It calls the ray_to_draw function with an initial angle of -FOV/2, which is the leftmost 
-// angle of the player's field of view. The function then iterates through all the columns 
-// of the screen and for each column, it casts a ray at the corresponding angle, calculates 
-// the distance to the wall, and then draws the wall on the screen. Finally, it increments 
-// the angle by FOV/WIN_W to move on to the next column. In other words, this function is 
-// responsible for generating the image that the player sees on the screen.
+// This function is responsible for drawing the rays cast by the player's 
+// field of view.It calls the ray_to_draw function with an initial angle of
+// -FOV/2,which is the leftmost angle of the player's field of view. The 
+// function then iterates through all the columns of the screen and for each 
+// column, it casts a ray at the corresponding angle, calculates the distance 
+//  to the wall, and then draws the wall on the screen. Finally, it increments
+// the angle by FOV/WIN_W to move on to the next column. In other words, this
+// function is responsible for generating the image that the player sees on the
+// screen.
 void	draw_seeing_rays(t_system *data)
 {
 	draw_ray(-FOV / 2, data, 0);
