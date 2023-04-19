@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:24:37 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 20:56:05 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:56:23 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,17 @@ float	*get_data_ray(t_system *data, t_ray *ray, int type)
 	if (type == VERTICAL)
 	{
 		ray->ver = init_ray_data(data, ray->ver);
-		depth_of_field = field_depth_ver(data, ray->r, ray_origin, ray->ra);
+		depth_of_field = depth_of_field_ver(data, ray->r, ray_origin, ray->ra);
 	}
 	else
 	{
 		ray->hor = init_ray_data(data, ray->ver);
-		depth_of_field = field_depth_hor(data, ray->r, ray_origin, ray->ra);
+		depth_of_field = depth_of_field_hor(data, ray->r, ray_origin, ray->ra);
 	}
 	while (depth_of_field[0] < depth_of_field[1])
 	{
 		if (check_wall(data, ray->r[X], ray->r[Y]))
-			get_ray_value(data, ray->r, depth_of_field, type);
+			get_ray_val(data, ray, depth_of_field, type);
 		else
 			update_data_ray(ray->r, ray_origin, depth_of_field);	
 	}

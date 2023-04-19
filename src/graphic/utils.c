@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:17:41 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/07 18:42:09 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/19 16:35:46 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
+#include "../../inc/cube.h"
 
 /* The function calculates the memory address of the pixel to be drawn in the
 ** image using the bits_per_pixel and line_length properties of the image field
@@ -115,7 +115,7 @@ void	get_ray_val(t_system *system, t_ray *ray, int *dof, int type)
 	{
 		ray->hor[X] = ray->r[X];
 		ray->hor[Y] = ray->r[Y];
-		ray->hor[DIST] = dist(system->cube->player.px, system->cube->player.py,
+		ray->hor[DIST] = calc_dist(system->cube->player.px, system->cube->player.py,
 				ray->r[X], ray->r[Y]);
 		if ((int)ray->r[Y] % 2 == 1)
 			ray->texture[HORIZONTAL] = system->cube->tex[1];
@@ -126,7 +126,7 @@ void	get_ray_val(t_system *system, t_ray *ray, int *dof, int type)
 	{
 		ray->ver[X] = ray->r[X];
 		ray->ver[Y] = ray->r[Y];
-		ray->ver[DIST] = dist(system->cube->player.px, system->cube->player.py,
+		ray->ver[DIST] = calc_dist(system->cube->player.px, system->cube->player.py,
 				ray->r[X], ray->r[Y]);
 		if ((int)ray->r[X] % 2 == 1)
 			ray->texture[VERTICAL] = system->cube->tex[3];
@@ -134,4 +134,14 @@ void	get_ray_val(t_system *system, t_ray *ray, int *dof, int type)
 			ray->texture[VERTICAL] = system->cube->tex[2];
 	}
 	dof[0] = dof[1];
+}
+
+//This function calculates the Euclidean distance between two points in
+//  a 2D space, given their coordinates.
+float	calc_dist(float ax, float ay, float bx, float by)
+{
+	float	dist;
+
+	dist = sqrtf((bx - ax) * (bx - ax) + (by - ay) * (by - ay));
+	return (dist);
 }

@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 19:39:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/15 14:25:23 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:45:40 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ static void	move_camera_keys(t_system *data)
 int	move_player(int keycode, t_system *data)
 {
 	mlx_clear_window(data->cube->mlx, data->cube->window);
-	key_move_cam(data);
+	move_camera_keys(data);
 	key_move_player_y(data);
 	key_move_player_x(data);
 	if (keycode == ESC)
@@ -138,7 +138,7 @@ int	move_player(int keycode, t_system *data)
 	data->cube->image.address = mlx_get_data_addr(data->cube->image.img,
 			&data->cube->image.bits_per_pixel,
 			&data->cube->image.line_length, &data->cube->image.endian);
-	draw_rays(data);
+	draw_seeing_rays(data);
 	mlx_put_image_to_window(data->cube->mlx, data->cube->window,
 		data->cube->image.img, 0, 0);
 	return (0);

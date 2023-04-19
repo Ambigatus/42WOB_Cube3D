@@ -26,7 +26,6 @@ SRCS		=	main.c\
 				map/map_open.c\
 				map/map_validation.c\
 				map/player_validation.c\
-				map/utils_2.c\
 				map/utils.c\
 				parser/color_parsing.c\
 				parser/initialization.c\
@@ -37,7 +36,7 @@ SRCS		=	main.c\
 				utils/utils.c\
 				keys/keys.c\
 				keys/exit.c\
-				keys/keys_utils.c\
+				keys/key_utils.c\
 				graphic/ray_casting.c\
 				graphic/ray_casting_part2.c\
 				graphic/ray_utils.c\

@@ -6,7 +6,7 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/15 22:17:03 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:54:47 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,25 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
-# include "utils.h"
-# include "errors.h"
 
+/******************************************************************************/
+/*								ERRORS DEFINE								  */
+/******************************************************************************/
+
+# define ARG 			"This program requires only one argument"
+# define FORMAT 		"Invalid map format"
+# define ACCESS 		"Failed to open map"
+# define PATH_NO 		"Invalid path for north texture"
+# define PATH_SO 		"Invalid path for south texture"
+# define PATH_WE 		"Invalid path for west texture"
+# define PATH_EA 		"Invalid path for east texture"
+# define RGB_F 			"Floor color isn't in RGB format"
+# define RGB_C 			"Ceiling color isn't in RGB format"
+# define LOT_OF_SET 	"Too many settings"
+# define MISSING		"Missing setting informations"
+# define INVALID_SET 	"Invalid setting's line"
+# define INVALID_MAP 	"Invalid map"
+# define MALLOC 		"Malloc failed"
 /******************************************************************************/
 /*							    ENUM STRUCTS							  	  */
 /******************************************************************************/
@@ -63,6 +79,41 @@ enum e_texture
 	WE,
 	EA
 };
+
+/******************************************************************************/
+/*							WINDOW AND FOV DEFINE				 		 	  */
+/******************************************************************************/
+
+# define WIN_W			1024
+# define WIN_H 			512
+# define FOV 			1.57079632679
+
+/******************************************************************************/
+/*							KEYBOARD DEFINE				 				  	  */
+/******************************************************************************/
+
+# define KEY_W			13
+# define KEY_A			0
+# define KEY_S			1
+# define KEY_D			2
+# define KEY_LEFT 		123
+# define KEY_RIGHT 		124
+# define ESC 			53
+
+/******************************************************************************/
+/*							MOVING STRUCT				 			  		  */
+/******************************************************************************/
+
+/* Keyboard handler */
+typedef struct s_key
+{
+	int	w;
+	int	a;
+	int	s;
+	int	d;
+	int	right;
+	int	left;
+}	t_key;
 
 /******************************************************************************/
 /*							       STRUCTS							  	 	  */
@@ -172,61 +223,101 @@ typedef struct s_system
 }	t_system;
 
 /******************************************************************************/
+/*								MATH DEFINE								 	  */
+/******************************************************************************/
+
+# define PI				3.141592653589793238
+# define P2  			1.57079632679
+# define P3  			4.71238898038
+
+# define SOUTH  		1.57079632679
+# define NORTH  		4.71238898038
+# define WEST			3.141592653589793238
+# define EAST			6.28318530718
+
+/******************************************************************************/
+/*						MOVE AND ROTATION SPEED DEFINE				 	 	  */
+/******************************************************************************/
+
+# define MOVE_SPEED		0.3
+# define ROT_SPEED		0.04
+
+/******************************************************************************/
+/*							DELIMITERS DEFINE					 			  */
+/******************************************************************************/
+
+# define WHITE "\t\v\r\f "
+/******************************************************************************/
 /*							   LIST OF FUNCTIONS, PARSER					  */
 /******************************************************************************/
 
-void		initialization(t_system *system);
-int			cmp_setup(t_system *system, char *line, char *type, int val);
-char		**split_and_validate_line(t_system *system, char *line);
-void		color_parsing(t_system *system, char *line, int type);
-void		texture_parsing(t_system *system, char *line, int type);
-void		parsing(int argc, char **argv, t_system *system);
-void		init_image(t_system *system);
+void			initialization(t_system *system);
+int				cmp_setup(t_system *system, char *line, char *type, int val);
+char			**split_and_validate_line(t_system *system, char *line);
+void			color_parsing(t_system *system, char *line, int type);
+void			texture_parsing(t_system *system, char *line, int type);
+void			parsing(int argc, char **argv, t_system *system);
+void			init_image(t_system *system);
+void			free_initialization(t_system *system, char *line);
+int				valid_char(char c);
+void			only_valid_char(t_system *system);
+int				check_walls(t_system *system, float x, float y);
 
 /******************************************************************************/
 /*							   LIST OF FUNCTIONS, MAP						  */
 /******************************************************************************/
 
-char		*open_map(t_system *system, char *line);
-void		player_check(t_system *system, char elmt, int y, int x);
-void		validate_space_around(t_system *system);
-char		*map_validation(t_system *system, char *line);
+char			*open_map(t_system *system, char *line);
+void			player_check(t_system *system, char elmt, int y, int x);
+void			validate_space_around(t_system *system);
+char			*map_validation(t_system *system, char *line);
+void			end_map_parsing(t_system *system, char *msg, char *line);
+void			get_fd(t_system *system, char *file);
+int				check_info(int *info);
+int				check_lines(char *line, int type);
+void			find_the_height(t_system *system);
+void			space_validation(t_system *system);
+void			walls_validation(t_system *system);
 
 /******************************************************************************/
 /*						 LIST OF FUNCTIONS, GRAPHIC ENGINE					  */
 /******************************************************************************/
 
-void		ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
+void			ft_3d_engine(t_system *system, float *draw, float end, t_ray *ray);
+void			ft_mlx_put_pixel(t_cube *cube, int x, int y, int color);
+unsigned int	ft_mlx_get_pixel(t_image *img, int x, int y);
+float			update_angle(float angle);
+void			update_data_ray(float *ray, float *o, int *dof);
+float			calc_dist(float ax, float ay, float bx, float by);
 
 /******************************************************************************/
 /*						 LIST OF FUNCTIONS, RAY CASTING						  */
 /******************************************************************************/
 
-float		*init_ray_data(t_system	*data, float *elem);
-float		*get_data_ray(t_system *data, t_ray *ray, int type);
-float		check_distance(t_ray *ray);
-static void	draw_ray(float small, t_system *data, int i);
-void		draw_seeing_rays(t_system *data);
+float			*init_ray_data(t_system	*data, float *elem);
+float			*get_data_ray(t_system *data, t_ray *ray, int type);
+float			check_distance(t_ray *ray);
+void			draw_seeing_rays(t_system *data);
 //ray utils
-int			check_wall(t_system *data, float x, float y);
-void		draw_column(t_system *data, int i, t_ray *ray);
-void		update_y_color(float *draw, t_system *data, float end, t_ray *ray);
-float		update_wall_end(float end, t_ray *ray);
-static int	update_data(t_system *data, float *ray);
-static int	check_ra_hor(t_system *data, float *ray, float *ray_orig, \
-							float ra);
-static int	check_ra_ver(t_system *data, float *ray, float *ray_orig, \
-							float ra);
-int			*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra);
-int			*depth_of_field_hor(t_system *data, float *ray, float *ray_orig, float ra);
-
+int				check_wall(t_system *data, float x, float y);
+void			draw_column(t_system *data, int i, t_ray *ray);
+void			update_y_color(float *draw, t_system *data, float end, t_ray *ray);
+float			update_wall_end(float end, t_ray *ray);
+int				*depth_of_field_ver(t_system *data, float *ray, float *ray_orig, float ra);
+int				*depth_of_field_hor(t_system *data, float *ray, float *ray_orig, float ra);
+void			get_ray_val(t_system *system, t_ray *ray, int *dof, int type);
 
 /******************************************************************************/
 /*						 LIST OF FUNCTIONS, KEYS							  */
 /******************************************************************************/
-int			move_player(int keycode, t_system *data);
-int			ft_exit(int keycode);
-int			keyrelease(int keycode, t_system *data);
-int			keypress(int keycode, t_system *data);
+int				move_player(int keycode, t_system *data);
+int				ft_exit(int keycode);
+int				keyrelease(int keycode, t_system *data);
+int				keypress(int keycode, t_system *data);
+
+/******************************************************************************/
+/*						 LIST OF FUNCTIONS, ERRORS							  */
+/******************************************************************************/
+int				error_msg(char *msg);
 
 #endif

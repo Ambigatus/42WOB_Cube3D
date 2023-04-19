@@ -6,11 +6,11 @@
 /*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:28:29 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/15 22:16:37 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:37:09 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
+#include "../../inc/cube.h"
 
 /* Simply frees all stored data for clean exit */
 void	free_initialization(t_system *system, char *line)

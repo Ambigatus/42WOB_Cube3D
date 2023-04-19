@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:02:40 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/01 17:12:08 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/19 16:24:06 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/errors.h"
+#include "../../inc/cube.h"
 
 int	error_msg(char *msg)
 {

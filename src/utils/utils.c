@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:50:35 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/03 17:24:47 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/19 16:37:46 by hboichuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
+#include "../../inc/cube.h"
 
 /* Open map file and get fd. If fd less than 0, give back an error */
 void	get_fd(t_system *system, char *file)
