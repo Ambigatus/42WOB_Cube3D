@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:08:29 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/01 18:24:39 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:54:48 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	ft_memcpm_reverse(char *s1, char *s2)
 		i++;
 		y++;
 	}
-	return (0);
+	return (1);
 }

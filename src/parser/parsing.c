@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:37:22 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/06 21:06:29 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/26 17:40:45 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static char	*validate_settings(t_system *system, char *line)
 	else if (!cmp_setup(system, line, "EA", 3))
 		texture_parsing(system, line, EA);
 	else if (!cmp_setup(system, line, "F", 4))
-		texture_parsing(system, line, FLOOR);
+		color_parsing(system, line, FLOOR);
 	else if (!cmp_setup(system, line, "C", 5))
-		texture_parsing(system, line, CEILING);
+		color_parsing(system, line, CEILING);
 	else
 		line = map_validation(system, line);
 	return (line);

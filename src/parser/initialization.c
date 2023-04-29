@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 16:56:01 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/01 18:07:40 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:31:14 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ static void	texture_init(t_system *system)
 {
 	int	i;
 
-	i = 0;
-	system->texture = malloc(sizeof(char *) * 4);
+	system->texture = malloc(sizeof(char *) * 8);
 	if (!system->texture)
 	{
 		ft_free(system->info);
@@ -86,6 +85,7 @@ static void	texture_init(t_system *system)
 		ft_free(system);
 		exit (error_msg(MALLOC));
 	}
+	i = 0;
 	while (i < 4)
 	{
 		system->texture[i] = ft_strdup("\0");

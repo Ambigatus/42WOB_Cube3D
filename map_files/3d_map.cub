@@ -1,7 +1,7 @@
-NO ./map/bluestone.xpm
-SO ./map/bluestone.xpm
-WE ./map/bluestone.xpm
-EA ./map/bluestone.xpm
+NO 42WOB_Cube3D/map_files/wall.xpm
+SO 42WOB_Cube3D/map_files/wall.xpm
+WE 42WOB_Cube3D/map_files/wall.xpm
+EA 42WOB_Cube3D/map_files/wall.xpm
 
 F 220,100,0
 C 225,30,0

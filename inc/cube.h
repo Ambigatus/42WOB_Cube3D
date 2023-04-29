@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/26 16:09:56 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/26 17:40:20 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@
 /*							TEXTURE DEFINE				 				  	  */
 /******************************************************************************/
 
-# define TEXT_NO	"../textures/wall.xpm"
-# define TEXT_SO	"../textures/wall.xpm"
-# define TEXT_EA	"../textures/wall.xpm"
-# define TEXT_WE	"../textures/wall.xpm"
+# define TEXT_NO	"42WOB_Cube3D/textures/bluestone.png"
+# define TEXT_SO	"42WOB_Cube3D/textures/bluestone.png"
+# define TEXT_EA	"42WOB_Cube3D/textures/bluestone.png"
+# define TEXT_WE	"42WOB_Cube3D/textures/bluestone.png"
 
 enum e_position
 {

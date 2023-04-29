@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:53:36 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/06 20:35:42 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/26 17:43:08 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,40 @@ void	texture_parsing(t_system *system, char *line, int type)
 	ft_free_split(split);
 	ft_free(path);
 }
+
+// void	texture_parsing(t_system *system, char *line, int type)
+// {
+// 	char	**split;
+// 	char	*path;
+
+// 	split = split_and_validate_line(system, line);
+// 	path = ft_strdup(split[1]);
+// 	if (path[ft_strlen(path) - 1] == '\n')
+// 		path[ft_strlen(path) - 1] = '\0';
+// 	if (type == NO){
+// 		free(system->texture[NO]);
+// 		system->texture[NO] = ft_strdup(path);
+// 	}
+// 	else if (type == SO){
+// 		free(system->texture[SO]);
+// 		system->texture[SO] = ft_strdup(path);
+// 	}
+// 	else if (type == WE){
+// 		free(system->texture[WE]);
+// 		system->texture[WE] = ft_strdup(path);
+// 	}
+// 	else{
+// 		free(system->texture[EA]);
+// 		system->texture[EA] = ft_strdup(path);
+// 	}
+// 	if (!path || !ft_memcpm_reverse(path, ".xpm"))
+// 	{
+// 		free_initialization(system, line);
+// 		ft_free_split(split);
+// 		ft_free(path);
+// 		internal_error_msg(type);
+// 		exit (EXIT_FAILURE);
+// 	}
+// 	ft_free_split(split);
+// 	ft_free(path);
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:08:31 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/19 17:06:49 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:34:10 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ int	main(int argc, char **argv)
 {
 	t_system	*system;
 
+	// (void)argc;
+	// (void)argv;
 	system = malloc(sizeof(t_system));
 	if (!system)
 		exit (error_msg(MALLOC));
-	parsing(argc, argv, system);
 	parsing(argc, argv, system);
 	initialization(system);
 	draw_seeing_rays(system);

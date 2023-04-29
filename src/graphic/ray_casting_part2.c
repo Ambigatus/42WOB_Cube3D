@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting_part2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:59:07 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/19 17:11:08 by hboichuk         ###   ########.fr       */
+/*   Updated: 2023/04/29 20:12:04 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,17 @@ static int	check_ra_hor(t_system *data, float *ray, float *ray_orig, \
 	tangent_of_ra = -1 / tan(ra);
 	if (ra > M_PI)
 	{
-		ray[Y] = (((int) data->cube->player.py >> 6) << 6) - 0.0001;
-		ray[X] = (data->cube->player.py - ray[Y] * tangent_of_ra) + \
+		ray[Y] = (((int)data->cube->player.py >> 6) << 6) - 0.0001;
+		ray[X] = (data->cube->player.py - ray[Y]) * tangent_of_ra + \
 				data->cube->player.px;
+		ray_orig[Y] = -data->map_s;
+		ray_orig[X] = -ray_orig[Y] * tangent_of_ra;
+	}
+	if (ra < M_PI)
+	{
+		ray[Y] = (((int)data->cube->player.py >> 6) << 6) + data->map_s;
+		ray[X] = (data->cube->player.py - ray[Y]) * tangent_of_ra
+			+ data->cube->player.px;
 		ray_orig[Y] = data->map_s;
 		ray_orig[X] = -ray_orig[Y] * tangent_of_ra;
 	}
@@ -66,16 +74,16 @@ static int	check_ra_ver(t_system *data, float *ray, float *ray_orig, \
 	tangent_of_ra = -tan(ra);
 	if (ra > P2 && ra < P3)
 	{
-		ray[X] = (((int) data->cube->player.px >> 6) << 6) - 0.0001;
-		ray[Y] = (data->cube->player.px - ray[X] * tangent_of_ra) + \
-				data->cube->player.py;
+		ray[X] = (((int)data->cube->player.px >> 6) << 6) - 0.0001;
+		ray[Y] = (data->cube->player.px - ray[X]) * tangent_of_ra
+			+ data->cube->player.py;
 		ray_orig[X] = -data->map_s;
 		ray_orig[Y] = -ray_orig[X] * tangent_of_ra;
 	}
 	if (ra < P2 || ra > P3)
 	{
-		ray[X] = (((int) data->cube->player.px >> 6) << 6) + data->map_s;
-		ray[Y] = (data->cube->player.px - ray[X] * tangent_of_ra) + \
+		ray[X] = (((int)data->cube->player.px >> 6) << 6) + data->map_s;
+		ray[Y] = (data->cube->player.px - ray[X]) * tangent_of_ra + \
 				data->cube->player.py;
 		ray_orig[X] = data->map_s;
 		ray_orig[Y] = -ray_orig[X] * tangent_of_ra;

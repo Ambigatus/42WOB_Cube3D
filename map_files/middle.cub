@@ -1,7 +1,7 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO 42WOB_Cube3D/textures/wall.xpm
+SO 42WOB_Cube3D/textures/wall.xpm
+WE 42WOB_Cube3D/textures/wall.xpm
+EA 42WOB_Cube3D/textures/wall.xpm
 F 220,100,0
 C 225,30,0
 
