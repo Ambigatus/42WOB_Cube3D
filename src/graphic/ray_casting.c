@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:24:37 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/29 20:21:40 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:05:43 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,11 +150,8 @@ void	draw_seeing_rays(t_system *system)
 	ray.r = malloc(sizeof(float) * 8);
 	if (!ray.r)
 		exit(1);
-	printf("Before while loop\n");
-	printf("Show value of WIN, %d", WIN_W);
-	while (i < 1024)
+	while (i < WIN_W)
 	{
-		printf("This is the info inside %f\n", system->cube->player.pa);
 		ray.ra = system->cube->player.pa + atan(small);
 		ray.ra = update_angle(ray.ra);
 		ray.hor = get_data_ray(system, &ray, HORIZONTAL);

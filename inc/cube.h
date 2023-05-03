@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:20:04 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/26 17:40:20 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/05/03 18:43:10 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,6 +271,8 @@ void			free_initialization(t_system *system, char *line);
 int				valid_char(char c);
 void			only_valid_char(t_system *system);
 int				check_walls(t_system *system, float x, float y);
+void			textures_init(t_system *system);
+void			system_init(t_system *system);
 
 /******************************************************************************/
 /*							   LIST OF FUNCTIONS, MAP						  */
@@ -308,7 +310,6 @@ float			*init_ray_data(t_system	*data, float *elem);
 float			*get_data_ray(t_system *data, t_ray *ray, int type);
 float			check_distance(t_ray *ray);
 void			draw_seeing_rays(t_system *data);
-//ray utils
 int				check_wall(t_system *data, float x, float y);
 void			draw_column(t_system *data, int i, t_ray *ray);
 void			update_y_color(float *draw, t_system *data, float end, \

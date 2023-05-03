@@ -29,6 +29,7 @@ SRCS		=	main.c\
 				map/utils.c\
 				parser/color_parsing.c\
 				parser/initialization.c\
+				parser/initialization_part_2.c\
 				parser/line_parsing.c\
 				parser/parsing.c\
 				parser/texture_parsing.c\

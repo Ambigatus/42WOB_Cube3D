@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:08:31 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/26 17:34:10 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:00:56 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	if (!system)
 		exit (error_msg(MALLOC));
 	parsing(argc, argv, system);
-	initialization(system);
+	system_init(system);
 	draw_seeing_rays(system);
 	mlx_hook(system->cube->window, 3, 3, keyrelease, system);
 	mlx_hook(system->cube->window, 2, 2, keypress, system);
