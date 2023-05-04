@@ -77,4 +77,7 @@ fclean: clean
 	make fclean -C $(MLX_DIR)	
 	$(RM) $(NAME)
 
-.PHONY: all clean fclean re
+norm:
+	norminette inc libft map_files src textures
+
+.PHONY: all clean fclean re norm
