@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 21:08:31 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/05/03 19:00:56 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/05/04 16:51:31 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int	main(int argc, char **argv)
 {
 	t_system	*system;
 
-	// (void)argc;
-	// (void)argv;
 	system = malloc(sizeof(t_system));
 	if (!system)
 		exit (error_msg(MALLOC));

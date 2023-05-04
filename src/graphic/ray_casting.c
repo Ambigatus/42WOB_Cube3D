@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:24:37 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/05/03 19:05:43 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/05/04 16:54:24 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,31 +100,31 @@ float	check_distance(t_ray *ray)
 //  on the screen. It then calls the draw_cwf function to draw the wall on the 
 //  screen. However, it doesn't draw anything else like the player or other 
 //  objects in the game.
-// static void	draw_ray(float small, t_system *data, int i)
-// {
-// 	static t_ray	ray;
+static void	draw_ray(float small, t_system *data, int i)
+{
+	static t_ray	ray;
 
-// 	ray.r = malloc(sizeof(float) * 3);
-// 	if (!ray.r)
-// 		exit(1);
-// 	while (i < WIN_W)
-// 	{
-// 		ray.ra = data->cube->player.pa + atan(small);
-// 		ray.ra = update_angle(ray.ra);
-// 		ray.hor = get_data_ray(data, &ray, HORIZONTAL);
-// 		ray.ver = get_data_ray(data, &ray, VERTICAL);
-// 		ray.dist = check_distance(&ray);
-// 		ray.ca = data->cube->player.pa - ray.ra;
-// 		ray.ca = update_angle(ray.ca);
-// 		ray.line_h = data->map_s * 320 / (ray.dist * cos(ray.ca));
-// 		ray.line_o = 160 - ray.line_h / 2;
-// 		data->cube->ray = &ray;
-// 		draw_column(data, i, &ray);
-// 		small += FOV / WIN_W;
-// 		i++;
-// 	}
-// 	ft_free(ray.r);
-// }
+	ray.r = malloc(sizeof(float) * 3);
+	if (!ray.r)
+		exit(1);
+	while (i < WIN_W)
+	{
+		ray.ra = data->cube->player.pa + atan(small);
+		ray.ra = update_angle(ray.ra);
+		ray.hor = get_data_ray(data, &ray, HORIZONTAL);
+		ray.ver = get_data_ray(data, &ray, VERTICAL);
+		ray.dist = check_distance(&ray);
+		ray.ca = data->cube->player.pa - ray.ra;
+		ray.ca = update_angle(ray.ca);
+		ray.line_h = data->map_s * 320 / (ray.dist * cos(ray.ca));
+		ray.line_o = 160 - ray.line_h / 2;
+		data->cube->ray = &ray;
+		draw_column(data, i, &ray);
+		small += FOV / WIN_W;
+		i++;
+	}
+	ft_free(ray.r);
+}
 
 // This function is responsible for drawing the rays cast by the player's 
 // field of view.It calls the ray_to_draw function with an initial angle of
@@ -135,36 +135,7 @@ float	check_distance(t_ray *ray)
 // the angle by FOV/WIN_W to move on to the next column. In other words, this
 // function is responsible for generating the image that the player sees on the
 // screen.
-// void	draw_seeing_rays(t_system *data)
-// {
-// 	draw_ray(-FOV / 2, data, 0);
-// }
-void	draw_seeing_rays(t_system *system)
+void	draw_seeing_rays(t_system *data)
 {
-	int				i;
-	static t_ray	ray;
-	float			small;
-
-	i = 0;
-	small = -FOV / 2;
-	ray.r = malloc(sizeof(float) * 8);
-	if (!ray.r)
-		exit(1);
-	while (i < WIN_W)
-	{
-		ray.ra = system->cube->player.pa + atan(small);
-		ray.ra = update_angle(ray.ra);
-		ray.hor = get_data_ray(system, &ray, HORIZONTAL);
-		ray.ver = get_data_ray(system, &ray, VERTICAL);
-		ray.dist = check_distance(&ray);
-		ray.ca = system->cube->player.pa - ray.ra;
-		ray.ca = update_angle(ray.ca);
-		ray.line_h = system->map_s * 320 / (ray.dist * cos(ray.ca));
-		ray.line_o = 160 - ray.line_h / 2;
-		system->cube->ray = &ray;
-		draw_column(system, i, &ray);
-		small += FOV / WIN_W;
-		i++;
-	}
-	ft_free(ray.r);
+	draw_ray(-FOV / 2, data, 0);
 }

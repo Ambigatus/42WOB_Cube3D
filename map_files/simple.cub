@@ -1,3 +1,12 @@
+NO ./textures/bluestone.xpm
+SO ./textures/Gravel.xpm
+WE ./map_files/wall.xpm
+EA ./map_files/wall.xpm
+
+F 128,128,128
+C 225,30,0
+
+
 111111
 100101
 101001

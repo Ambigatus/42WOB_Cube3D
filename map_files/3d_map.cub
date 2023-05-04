@@ -1,16 +1,16 @@
-NO ./textures/bluestone.xpm
-SO ./textures/Gravel.xpm
+NO ./map_files/brick.xpm
+SO ./map_files/brick.xpm
 WE ./map_files/wall.xpm
 EA ./map_files/wall.xpm
 
-F 0,100,0
-C 225,30,0
+F 128,128,128
+C 120,81,169
 
 11111111
 10000001
-10000001
+10000101
 100S0001
 10000001
-10000101
+10000011
 10000101
 11111111
